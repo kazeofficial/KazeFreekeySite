@@ -4,246 +4,290 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>KAZEHAYAMODZ SECURE KEY SYSTEM</title>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800;900&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
 
 <style>
-*{
-box-sizing:border-box;
-margin:0;
-padding:0;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    user-select: none;
 }
 
-body{
-height: 100dvh;
-width:100vw;
-display:flex;
-justify-content:center;
-align-items:center;
-background:#0b0f16;
-font-family:'Segoe UI',sans-serif;
-color:white;
-overflow:hidden;
+body {
+    height: 100dvh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #080b11;
+    font-family: 'Rajdhani', sans-serif;
+    color: white;
+    overflow: hidden;
+    position: relative;
 }
 
-/* container */
-.container{
-position:relative;
-width:100%;
-height: 100dvh;
-background:#111826;
-display:flex;
-flex-direction:column;
-justify-content:space-between;
-padding:35px 20px;
-text-align:center;
+/* Background Ambient Glow */
+body::before {
+    content: "";
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(0, 255, 213, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    pointer-events: none;
 }
 
-/* rainbow line top */
-.container::before{
-content:"";
-position:absolute;
-top:0;
-left:0;
-right:0;
-height:4px;
-background:linear-gradient(90deg,red,orange,yellow,lime,cyan,blue,magenta,red);
-background-size:400%;
-animation:rainbow 6s linear infinite;
-z-index: 10;
+/* Container Card with Glassmorphism */
+.container {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    height: 100dvh;
+    background: rgba(15, 22, 36, 0.85);
+    backdrop-filter: blur(12px);
+    border-left: 1px solid rgba(255, 255, 255, 0.05);
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 40px 24px;
+    text-align: center;
+    z-index: 1;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
 }
 
-@keyframes rainbow{
-0%{background-position:0%}
-100%{background-position:400%}
+/* Top Neon Line */
+.container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #ff0055, #00ffd5, #7000ff);
+    background-size: 200% 100%;
+    animation: neonGlow 4s linear infinite;
+    z-index: 10;
+}
+
+@keyframes neonGlow {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 200% 0%; }
 }
 
 /* ==============================
-   HEADER WITH ROTATING RED BORDER
+   HEADER STYLES
    ============================== */
 header {
     margin-top: 10px;
 }
 
+.brand-box {
+    position: relative;
+    display: inline-block;
+    padding: 16px 24px;
+    background: rgba(10, 15, 26, 0.9);
+    border-radius: 16px;
+    border: 1px solid rgba(0, 255, 213, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), inset 0 0 15px rgba(0, 255, 213, 0.05);
+}
+
 header h1 {
-    font-family: 'Orbitron', sans-serif; /* Futuristic Font */
-    font-size: 18px; /* Compact Size */
+    font-family: 'Orbitron', sans-serif;
+    font-size: 19px;
+    font-weight: 800;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: #fff;
-    position: relative;
-    padding: 12px 20px; /* Slim padding */
-    display: inline-block;
-    background: #111826; 
-    border-radius: 12px;
-    overflow: hidden; 
-    z-index: 1;
-    line-height: 1.3;
-}
-
-/* Ang umiikot na kulay pula (Red Border Effect) */
-header h1::before {
-    content: "";
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: conic-gradient(
-        transparent, 
-        transparent, 
-        transparent, 
-        #ff0000 
-    );
-    animation: rotate 2s linear infinite;
-    z-index: -2;
-}
-
-/* Inner cover para magmukhang border lang yung pula */
-header h1::after {
-    content: "";
-    position: absolute;
-    inset: 2px; /* Kapal ng border - Manipis para compact */
-    background: #0d131f;
-    border-radius: 10px;
-    z-index: -1;
+    background: linear-gradient(135deg, #ffffff 0%, #a5b4fc 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1.35;
 }
 
 header p {
-    color: #00ffd5; 
-    font-size: 11px;
-    margin-top: 12px;
-    font-weight: bold;
+    color: #00ffd5;
+    font-size: 12px;
+    margin-top: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px rgba(0, 255, 213, 0.4);
+}
+
+/* ==============================
+   BUTTONS GROUP
+   ============================== */
+.btn-group {
+    width: 100%;
+    margin: auto 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 16px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    border: none;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    text-transform: uppercase;
     letter-spacing: 1px;
-    opacity: 0.8;
+    position: relative;
+    overflow: hidden;
 }
 
-@keyframes rotate {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+.btn:active {
+    transform: scale(0.96);
 }
 
-/* buttons group */
-.btn-group{
-width:100%;
-max-width:320px;
-margin:0 auto;
+/* Key Button */
+.key {
+    background: linear-gradient(135deg, #00ffd5 0%, #00b894 100%);
+    color: #080b11;
+    box-shadow: 0 4px 20px rgba(0, 255, 213, 0.35);
 }
 
-.btn{
-display:flex;
-align-items:center;
-justify-content:center;
-width:100%;
-padding:16px;
-margin-bottom:12px;
-font-size:14px;
-font-weight:bold;
-border:none;
-border-radius:10px;
-text-decoration:none;
-transition:0.2s;
-text-transform:uppercase;
+.key:hover {
+    box-shadow: 0 6px 25px rgba(0, 255, 213, 0.5);
 }
 
-.btn:active{
-transform:scale(0.97);
+/* Telegram Button */
+.telegram {
+    background: linear-gradient(135deg, #229ED9 0%, #0077b5 100%);
+    color: #fff;
+    box-shadow: 0 4px 20px rgba(34, 158, 217, 0.3);
 }
 
-.key{
-background:#00ffd5;
-color:#000;
-box-shadow:0 0 15px rgba(0,255,213,0.3);
+/* Tutorial Button */
+.tutorial {
+    background: rgba(255, 68, 68, 0.1);
+    color: #ff5555;
+    border: 1px solid rgba(255, 68, 68, 0.4);
+    box-shadow: 0 4px 15px rgba(255, 68, 68, 0.15);
 }
 
-.telegram{
-background:#229ED9;
-color:#fff;
+/* ==============================
+   FOOTER STYLES
+   ============================== */
+footer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
 }
 
-.tutorial{
-background:#ff4444;
-color:#fff;
+.warning {
+    font-size: 12px;
+    color: #fbbf24;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 6px;
 }
 
-/* FOOTER STYLES */
-footer{
-width:100%;
-max-width:340px;
-margin:0 auto;
-padding-bottom: 20px;
+.owner {
+    font-size: 13px;
+    color: #94a3b8;
+    font-weight: 700;
+    cursor: pointer;
+    transition: color 0.2s;
 }
 
-.warning{
-font-size:12px;
-color:#ffcc00;
-margin-bottom:8px;
-line-height:1.4;
-font-weight: bold;
+.owner:hover {
+    color: #00ffd5;
 }
 
-.owner{
-font-size:14px;
-color:#00ffd5;
-font-weight:bold;
-display:block;
-cursor: pointer;
-text-decoration: underline;
+/* VIP Button */
+.vip-btn-small {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 20px;
+    margin-top: 6px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 11px;
+    font-weight: 800;
+    border-radius: 20px;
+    text-decoration: none;
+    background: linear-gradient(135deg, #ffe259 0%, #ffa751 100%);
+    color: #000;
+    box-shadow: 0 0 15px rgba(255, 167, 81, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
-/* SMALL VIP BUTTON AT THE BOTTOM */
-.vip-btn-small{
-display:inline-flex;
-align-items:center;
-justify-content:center;
-padding:8px 15px;
-margin-top:12px;
-font-size:11px;
-font-weight:bold;
-border-radius:8px;
-text-decoration:none;
-background:linear-gradient(45deg,#ffd700,#ff9f00);
-color:black;
-box-shadow:0 0 10px rgba(255,215,0,0.3);
-text-transform:uppercase;
+.vip-btn-small:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 20px rgba(255, 167, 81, 0.6);
 }
 
-/* OVERLAY BOX */
-.generator-info{
-position: fixed;
-top: 50%;
-left: 50%;
-transform: translate(-50%, -50%);
-background: #1a2230;
-padding: 25px;
-border-radius: 20px;
-border: 1px solid #00ffd5;
-box-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
-z-index: 100;
-font-size:14px;
-color:#fff;
-line-height:1.6;
-width: 85%;
-max-width: 280px;
-display: none;
-text-align: center;
+/* ==============================
+   MODAL / POPUP INFO
+   ============================== */
+.generator-info {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(16px);
+    padding: 28px;
+    border-radius: 24px;
+    border: 1px solid rgba(0, 255, 213, 0.3);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9), 0 0 30px rgba(0, 255, 213, 0.1);
+    z-index: 100;
+    font-size: 15px;
+    color: #cbd5e1;
+    line-height: 1.6;
+    width: 88%;
+    max-width: 320px;
+    display: none;
+    text-align: center;
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .generator-info.active {
     display: block;
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
 }
 
 .close-info {
     display: block;
-    margin: 15px auto 0;
-    padding: 8px 20px;
-    background: #ff4444;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-weight: bold;
+    width: 100%;
+    margin-top: 20px;
+    padding: 12px;
+    background: rgba(239, 68, 68, 0.2);
+    color: #ef4444;
+    border: 1px solid rgba(239, 68, 68, 0.4);
+    border-radius: 12px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
     cursor: pointer;
+    transition: 0.2s;
 }
 
+.close-info:hover {
+    background: #ef4444;
+    color: white;
+}
 </style>
 </head>
 
@@ -251,25 +295,24 @@ text-align: center;
 
 <div class="container">
 
-<header>
-    <div class="brand-box">
-        <h1>KAZEHAYAMODZ<br>SECURE KEY SYSTEM</h1>
-    </div>
-    <p>Official Kaze Free Key Generator</p>
-</header>
+    <header>
+        <div class="brand-box">
+            <h1>KAZEHAYAMODZ<br>SECURE KEY SYSTEM</h1>
+        </div>
+        <p>Official Free Key Generator</p>
+    </header>
 
-<div class="btn-group">
-    <a class="btn key" href="select.html">🔑 GET FREE KEY</a>
-    <a class="btn telegram" href="https://t.me/KazeMainChannel">📢 JOIN TELEGRAM</a>
-    <a class="btn tutorial" href="https://t.me/KazeTutorial/33">🎥 WATCH TUTORIAL</a>
-</div>
-    
-<footer>
-    <p class="warning">⚠️ Please give feedback to the owner if there is any error</p>
-    <span class="owner" id="open-info">Developer: @KAZEHAYAMODZ</span>
-    
-    <a class="vip-btn-small" href="https://t.me/KAZEHAYAMODZ" target="_blank">⭐ BUY VIP KEY</a>
-</footer>
+    <div class="btn-group">
+        <a class="btn key" href="select.html">🔑 Get Free Key</a>
+        <a class="btn telegram" href="https://t.me/KazeMainChannel">📢 Join Telegram</a>
+        <a class="btn tutorial" href="https://t.me/KazeTutorial/33">🎥 Watch Tutorial</a>
+    </div>
+        
+    <footer>
+        <p class="warning">⚠️ Report any bugs to the developer</p>
+        <span class="owner" id="open-info">Developer: @KAZEHAYAMODZ</span>
+        <a class="vip-btn-small" href="https://t.me/KAZEHAYAMODZ" target="_blank">⭐ Buy VIP Key</a>
+    </footer>
 
 </div>
 
@@ -282,8 +325,8 @@ text-align: center;
 
 <script>
 // Anti-back logic
-history.pushState(null,null,location.href);
-window.onpopstate=function(){ history.go(1); };
+history.pushState(null, null, location.href);
+window.onpopstate = function() { history.go(1); };
 
 // Overlay logic
 const openBtn = document.getElementById('open-info');
